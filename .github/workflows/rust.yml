@@ -21,3 +21,9 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: "stable"
+      - name: Install cargo-llvm-cov
+        if: false
+        uses: taiki-e/install-action@cargo-llvm-cov
+      - name: Upload coverage to Codecov
+        if: false
+        uses: codecov/codecov-action@v4
