@@ -1,0 +1,23 @@
+name: Rust
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: "1"
+  CC: clang
+  CXX: clang++
+
+jobs:
+  build:
+    runs-on: gha-arm
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: "stable"
